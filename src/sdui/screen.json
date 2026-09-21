@@ -1,0 +1,28 @@
+{
+  "components": [
+    {
+      "type": "text",
+      "props": {
+        "text": "Flash Sale"
+      }
+    },
+    {
+      "type": "text",
+      "props": {
+        "text": "Everything is 50% off"
+      }
+    },
+    {
+      "type": "button",
+      "props": {
+        "label": "Shop Now"
+      }
+    },
+    {
+      "type": "button",
+      "props": {
+        "label": "Maybe Later"
+      }
+    }
+  ]
+}
