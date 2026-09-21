@@ -1,28 +1,179 @@
 {
   "components": [
     {
-      "type": "text",
-      "props": {
-        "text": "Flash Sale"
-      }
-    },
-    {
-      "type": "text",
-      "props": {
-        "text": "Everything is 50% off"
-      }
-    },
-    {
-      "type": "button",
-      "props": {
-        "label": "Shop Now"
-      }
-    },
-    {
-      "type": "button",
-      "props": {
-        "label": "Maybe Later"
-      }
+      "type": "column",
+      "children": [
+        {
+          "type": "text",
+          "props": {
+            "text": "Product Catalog"
+          }
+        },
+        {
+          "type": "text",
+          "props": {
+            "text": "Everything is 50% off today only"
+          }
+        },
+        {
+          "type": "row",
+          "children": [
+            {
+              "type": "button",
+              "props": {
+                "label": "Home"
+              }
+            },
+            {
+              "type": "button",
+              "props": {
+                "label": "Products"
+              }
+            },
+            {
+              "type": "button",
+              "props": {
+                "label": "Cart"
+              }
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "children": [
+            {
+              "type": "column",
+              "children": [
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "Wireless Headphones"
+                  }
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "$99.99"
+                  }
+                },
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "button",
+                      "props": {
+                        "label": "Add to Cart"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "props": {
+                        "label": "Details"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "column",
+              "children": [
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "Mechanical Keyboard"
+                  }
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "$149.50"
+                  }
+                },
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "button",
+                      "props": {
+                        "label": "Add to Cart"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "props": {
+                        "label": "Details"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "column",
+              "children": [
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "4K Monitor"
+                  }
+                },
+                {
+                  "type": "text",
+                  "props": {
+                    "text": "$299.00"
+                  }
+                },
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "button",
+                      "props": {
+                        "label": "Add to Cart"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "props": {
+                        "label": "Details"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "props": {
+                "text": "Footer"
+              }
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "button",
+                  "props": {
+                    "label": "Terms"
+                  }
+                },
+                {
+                  "type": "button",
+                  "props": {
+                    "label": "Privacy"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

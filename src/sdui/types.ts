@@ -10,6 +10,14 @@ export type SDUINode =
       props: {
         label: string;
       };
+    }
+  | {
+      type: "column";
+      children: SDUINode[];
+    }
+  | {
+      type: "row";
+      children: SDUINode[];
     };
 
 export type SDUIScreen = {
