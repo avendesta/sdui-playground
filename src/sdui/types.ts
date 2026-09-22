@@ -3,12 +3,14 @@ export type SDUINode =
       type: "text";
       props: {
         text: string;
+        variant?: "title";
       };
     }
   | {
       type: "button";
       props: {
         label: string;
+        variant?: "success" | "danger";
       };
     }
   | {

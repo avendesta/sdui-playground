@@ -6,7 +6,8 @@
         {
           "type": "text",
           "props": {
-            "text": "Product Catalog"
+            "text": "Product Catalog",
+            "variant": "title"
           }
         },
         {
@@ -62,7 +63,8 @@
                     {
                       "type": "button",
                       "props": {
-                        "label": "Add to Cart"
+                        "label": "Add to Cart",
+                        "variant": "success"
                       }
                     },
                     {
@@ -96,7 +98,8 @@
                     {
                       "type": "button",
                       "props": {
-                        "label": "Add to Cart"
+                        "label": "Add to Cart",
+                        "variant": "success"
                       }
                     },
                     {
@@ -130,7 +133,8 @@
                     {
                       "type": "button",
                       "props": {
-                        "label": "Add to Cart"
+                        "label": "Add to Cart",
+                        "variant": "success"
                       }
                     },
                     {
@@ -167,6 +171,13 @@
                   "type": "button",
                   "props": {
                     "label": "Privacy"
+                  }
+                },
+                {
+                  "type": "button",
+                  "props": {
+                    "label": "Clear Cart",
+                    "variant": "danger"
                   }
                 }
               ]

@@ -86,3 +86,31 @@
   padding: var(--sdui-card-padding);
   box-shadow: var(--sdui-shadow);
 }
+
+/*
+ * Server-driven variants: the JSON picks a name from this fixed vocabulary;
+ * the client maps each name to concrete styles. The server cannot send
+ * arbitrary CSS — only these known variants.
+ */
+
+.sdui-button--success {
+  background: #16a34a;
+}
+
+.sdui-button--success:hover {
+  background: #15803d;
+}
+
+.sdui-button--danger {
+  background: #dc2626;
+}
+
+.sdui-button--danger:hover {
+  background: #b91c1c;
+}
+
+.sdui-text--title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+}

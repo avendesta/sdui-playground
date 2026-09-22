@@ -7,15 +7,23 @@ type RendererProps = {
 
 export function Renderer({ node }: RendererProps) {
   switch (node.type) {
-    case "text":
-      return <p className="sdui-text">{node.props.text}</p>;
+    case "text": {
+      const className = `sdui-text${
+        node.props.variant ? ` sdui-text--${node.props.variant}` : ""
+      }`;
+      return <p className={className}>{node.props.text}</p>;
+    }
 
-    case "button":
+    case "button": {
+      const className = `sdui-button${
+        node.props.variant ? ` sdui-button--${node.props.variant}` : ""
+      }`;
       return (
-        <button type="button" className="sdui-button">
+        <button type="button" className={className}>
           {node.props.label}
         </button>
       );
+    }
 
     case "column":
       return (
