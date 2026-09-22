@@ -1,4 +1,5 @@
 import type { SDUINode } from "./types";
+import "./sdui.css";
 
 type RendererProps = {
   node: SDUINode;
@@ -7,14 +8,18 @@ type RendererProps = {
 export function Renderer({ node }: RendererProps) {
   switch (node.type) {
     case "text":
-      return <p>{node.props.text}</p>;
+      return <p className="sdui-text">{node.props.text}</p>;
 
     case "button":
-      return <button>{node.props.label}</button>;
+      return (
+        <button type="button" className="sdui-button">
+          {node.props.label}
+        </button>
+      );
 
     case "column":
       return (
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div className="sdui-column">
           {node.children.map((child, index) => (
             <Renderer key={index} node={child} />
           ))}
@@ -23,7 +28,16 @@ export function Renderer({ node }: RendererProps) {
 
     case "row":
       return (
-        <div style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+        <div className="sdui-row">
+          {node.children.map((child, index) => (
+            <Renderer key={index} node={child} />
+          ))}
+        </div>
+      );
+
+    case "card":
+      return (
+        <div className="sdui-card">
           {node.children.map((child, index) => (
             <Renderer key={index} node={child} />
           ))}

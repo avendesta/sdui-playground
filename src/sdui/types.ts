@@ -18,6 +18,10 @@ export type SDUINode =
   | {
       type: "row";
       children: SDUINode[];
+    }
+  | {
+      type: "card";
+      children: SDUINode[];
     };
 
 export type SDUIScreen = {

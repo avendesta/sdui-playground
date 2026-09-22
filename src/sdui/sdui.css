@@ -1,0 +1,88 @@
+/*
+ * Presentation layer for the SDUI vocabulary. Self-contained: defines its own
+ * --sdui-* variables (no dependency on index.css demo vars), light + dark.
+ * Palette: violet accent deepened from the demo #aa3bff to #7c3aed so white
+ * button labels reach WCAG AA contrast; one accent serves both modes.
+ * Column/row are deliberately transparent layout containers — backgrounds
+ * belong to cards, never to layout.
+ */
+
+:root {
+  --sdui-text: #23262e;
+  --sdui-border: #e4e7ee;
+  --sdui-card-bg: #f8f9fc;
+  --sdui-accent: #7c3aed;
+  --sdui-accent-hover: #6d28d9;
+  --sdui-accent-text: #ffffff;
+  --sdui-shadow:
+    0 1px 2px rgba(20, 22, 28, 0.05),
+    0 8px 24px rgba(20, 22, 28, 0.07);
+  --sdui-gap: 12px;
+  --sdui-card-padding: 20px;
+  --sdui-radius-card: 12px;
+  --sdui-radius-button: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sdui-text: #e7e9f0;
+    --sdui-border: #31343f;
+    --sdui-card-bg: #20222c;
+    --sdui-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.sdui-text {
+  margin: 0;
+  color: var(--sdui-text);
+}
+
+.sdui-button {
+  appearance: none;
+  border: none;
+  background: var(--sdui-accent);
+  color: var(--sdui-accent-text);
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 8px 16px;
+  border-radius: var(--sdui-radius-button);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.sdui-button:hover {
+  background: var(--sdui-accent-hover);
+}
+
+.sdui-button:focus-visible {
+  outline: 2px solid var(--sdui-accent);
+  outline-offset: 2px;
+}
+
+.sdui-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sdui-gap);
+}
+
+.sdui-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sdui-gap);
+}
+
+.sdui-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sdui-gap);
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--sdui-card-bg);
+  border: 1px solid var(--sdui-border);
+  border-radius: var(--sdui-radius-card);
+  padding: var(--sdui-card-padding);
+  box-shadow: var(--sdui-shadow);
+}

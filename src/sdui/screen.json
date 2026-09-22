@@ -42,7 +42,7 @@
           "type": "row",
           "children": [
             {
-              "type": "column",
+              "type": "card",
               "children": [
                 {
                   "type": "text",
@@ -76,7 +76,7 @@
               ]
             },
             {
-              "type": "column",
+              "type": "card",
               "children": [
                 {
                   "type": "text",
@@ -110,7 +110,7 @@
               ]
             },
             {
-              "type": "column",
+              "type": "card",
               "children": [
                 {
                   "type": "text",
