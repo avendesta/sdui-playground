@@ -1,55 +1,45 @@
+import type { ReactNode } from "react";
+import {
+  ButtonComponent,
+  CardComponent,
+  ColumnComponent,
+  RowComponent,
+  TextComponent,
+} from "./components";
 import type { SDUINode } from "./types";
 import "./sdui.css";
+
+// A component for one specific node type: it receives that type's narrowed node.
+type NodeComponent<K extends SDUINode["type"]> = (props: {
+  node: Extract<SDUINode, { type: K }>;
+}) => ReactNode;
+
+// The component registry: the JSON's "type" string looks up which component
+// renders the node. The mapped type forces every SDUINode variant to have an
+// entry — adding a node type to types.ts without registering it here is a
+// compile error.
+const registry: { [K in SDUINode["type"]]: NodeComponent<K> } = {
+  text: TextComponent,
+  button: ButtonComponent,
+  column: ColumnComponent,
+  row: RowComponent,
+  card: CardComponent,
+};
 
 type RendererProps = {
   node: SDUINode;
 };
 
 export function Renderer({ node }: RendererProps) {
-  switch (node.type) {
-    case "text": {
-      const className = `sdui-text${
-        node.props.variant ? ` sdui-text--${node.props.variant}` : ""
-      }`;
-      return <p className={className}>{node.props.text}</p>;
-    }
+  // The lookup key is a union, so TypeScript can't correlate the node to its
+  // component — one cast is the price of dynamic dispatch.
+  const Component = registry[node.type] as
+    | NodeComponent<SDUINode["type"]>
+    | undefined;
 
-    case "button": {
-      const className = `sdui-button${
-        node.props.variant ? ` sdui-button--${node.props.variant}` : ""
-      }`;
-      return (
-        <button type="button" className={className}>
-          {node.props.label}
-        </button>
-      );
-    }
+  // Unknown type handling (roadmap item 8): fail loudly in dev rather than
+  // crashing the render — for now, render nothing.
+  if (!Component) return null;
 
-    case "column":
-      return (
-        <div className="sdui-column">
-          {node.children.map((child, index) => (
-            <Renderer key={index} node={child} />
-          ))}
-        </div>
-      );
-
-    case "row":
-      return (
-        <div className="sdui-row">
-          {node.children.map((child, index) => (
-            <Renderer key={index} node={child} />
-          ))}
-        </div>
-      );
-
-    case "card":
-      return (
-        <div className="sdui-card">
-          {node.children.map((child, index) => (
-            <Renderer key={index} node={child} />
-          ))}
-        </div>
-      );
-  }
+  return <Component node={node} />;
 }
